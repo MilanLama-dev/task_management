@@ -1,6 +1,5 @@
-from filehandler import save_tasks_to_file
+import filehandler
 from utils import input_deadline, options_manager, options_employee
-import datetime
 
 tasks = []
 
@@ -17,7 +16,7 @@ def create_task():
         "Deadline": deadline
     }
     tasks.append(task)
-    save_tasks_to_file(tasks)
+    filehandler.save_tasks_to_file(tasks)
     print("Task created successfully.")
 
 def see_task():
@@ -36,7 +35,7 @@ def delete_task():
         index = int(input("Enter task number to delete: "))
         if 1 <= index <= len(tasks):
             removed = tasks.pop(index - 1)
-            save_tasks_to_file(tasks)
+            filehandler.save_tasks_to_file(tasks)
             print(f"Task '{removed['Task Name']}' deleted successfully.")
         else:
             print("Invalid number.")
@@ -55,7 +54,7 @@ def modify_task():
                 tasks[index - 1]["Task Name"] = new_name
             new_deadline = input_deadline()
             tasks[index - 1]["Deadline"] = new_deadline
-            save_tasks_to_file(tasks)
+            filehandler.save_tasks_to_file(tasks)
             print("Task modified successfully.")
         else:
             print("Invalid number.")
@@ -71,7 +70,7 @@ def task_status():
         if 1 <= index <= len(tasks):
             task = tasks[index - 1]
             task["Status"] = "done" if task["Status"] == "pending" else "pending"
-            save_tasks_to_file(tasks)
+            filehandler.save_tasks_to_file(tasks)
             print(f"Task status updated to '{task['Status']}'.")
         else:
             print("Invalid number.")

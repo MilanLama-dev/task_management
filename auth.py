@@ -1,4 +1,4 @@
-from tasks import core_function_manager, core_function_employee
+from Tasks import core_function_manager, core_function_employee
 
 roles = {
     "manager": "Manager123",
