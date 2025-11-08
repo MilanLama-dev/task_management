@@ -7,7 +7,7 @@ tasks = []
 def create_task():
     task_name = input("Enter task name: ").strip()
     if not task_name:
-        print("⚠️ Task name cannot be empty.")
+        print("Task name cannot be empty.")
         return
 
     deadline = input_deadline()
@@ -18,13 +18,13 @@ def create_task():
     }
     tasks.append(task)
     save_tasks_to_file(tasks)
-    print("✅ Task created successfully.")
+    print("Task created successfully.")
 
 def see_task():
     if not tasks:
-        print("📭 No tasks to display.")
+        print("No tasks to display.")
         return
-    print("\n📋 Tasks:")
+    print("\nTasks:")
     for i, task in enumerate(tasks, 1):
         print(f"{i}. {task['Task Name']} — Status: {task['Status']} — Deadline: {task['Deadline']}")
 
@@ -37,11 +37,11 @@ def delete_task():
         if 1 <= index <= len(tasks):
             removed = tasks.pop(index - 1)
             save_tasks_to_file(tasks)
-            print(f"🗑️ Task '{removed['Task Name']}' deleted successfully.")
+            print(f"Task '{removed['Task Name']}' deleted successfully.")
         else:
-            print("⚠️ Invalid number.")
+            print("Invalid number.")
     except ValueError:
-        print("⚠️ Please enter a valid number.")
+        print("Please enter a valid number.")
 
 def modify_task():
     see_task()
@@ -56,11 +56,11 @@ def modify_task():
             new_deadline = input_deadline()
             tasks[index - 1]["Deadline"] = new_deadline
             save_tasks_to_file(tasks)
-            print("✏️ Task modified successfully.")
+            print("Task modified successfully.")
         else:
-            print("⚠️ Invalid number.")
+            print("Invalid number.")
     except ValueError:
-        print("⚠️ Please enter a valid number.")
+        print("Please enter a valid number.")
 
 def task_status():
     see_task()
@@ -72,11 +72,11 @@ def task_status():
             task = tasks[index - 1]
             task["Status"] = "done" if task["Status"] == "pending" else "pending"
             save_tasks_to_file(tasks)
-            print(f"🔁 Task status updated to '{task['Status']}'.")
+            print(f"Task status updated to '{task['Status']}'.")
         else:
-            print("⚠️ Invalid number.")
+            print("Invalid number.")
     except ValueError:
-        print("⚠️ Please enter a valid number.")
+        print("Please enter a valid number.")
 
 def core_function_manager():
     while True:
@@ -94,12 +94,12 @@ def core_function_manager():
             elif choice == 5:
                 task_status()
             elif choice == 6:
-                print("👋 Goodbye Manager!")
+                print("Goodbye Manager!")
                 break
             else:
-                print("⚠️ Invalid input.")
+                print("Invalid input.")
         except ValueError:
-            print("⚠️ Please enter a number.")
+            print("Please enter a number.")
 
 def core_function_employee():
     while True:
@@ -111,9 +111,9 @@ def core_function_employee():
             elif choice == 2:
                 task_status()
             elif choice == 3:
-                print("👋 Goodbye Employee!")
+                print("Goodbye Employee!")
                 break
             else:
-                print("⚠️ Invalid input.")
+                print("Invalid input.")
         except ValueError:
-            print("⚠️ Please enter a number.")
+            print("Please enter a number.")

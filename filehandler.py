@@ -9,7 +9,7 @@ def save_tasks_to_file(tasks_list):
         for task in tasks_list:
             line = f"{task['Task Name']}|{task['Status']}|{task['Deadline']}\n"
             file.write(line)
-    print("💾 Tasks saved locally.")
+    print("Tasks saved locally.")
 
 def load_tasks_from_file():
     tasks.clear()
@@ -29,6 +29,6 @@ def load_tasks_from_file():
                     "Status": status,
                     "Deadline": deadline
                 })
-        print("📂 Tasks loaded from local file.")
+        print("Tasks loaded from local file.")
     except FileNotFoundError:
-        print("📁 No saved tasks found — starting fresh.")
+        print("No saved tasks found — starting fresh.")

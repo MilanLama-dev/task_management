@@ -19,10 +19,10 @@ def input_deadline():
     while True:
         date_input = input("Enter deadline (YYYY-MM-DD): ").strip()
         if not date_input:
-            print("⚠️ Deadline cannot be empty.")
+            print("Deadline cannot be empty.")
             continue
         try:
             datetime.datetime.strptime(date_input, "%Y-%m-%d")
             return date_input
         except ValueError:
-            print("❌ Invalid date format. Please use YYYY-MM-DD.")
+            print("Invalid date format. Please use YYYY-MM-DD.")

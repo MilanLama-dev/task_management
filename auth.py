@@ -19,6 +19,6 @@ def login():
             else:
                 core_function_employee()
         else:
-            print("❌ Password is incorrect.")
+            print("Password is incorrect.")
     else:
-        print("❌ Role not found.")
+        print("Role not found.")
